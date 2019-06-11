@@ -1,0 +1,109 @@
+#include<iostream>
+using namespace std;
+
+
+class queue
+{
+   private:
+	
+int array[5]={0};
+int front;
+int rear;	
+	
+public:
+	
+	queue()
+	{
+		
+	  	front=-1;
+	  	rear=-1;
+
+	}
+  void 	enque()
+	{
+		int el;
+		cout<<"enter element to insert in queue";
+		cin>>el;
+	  rear=rear+1;
+	  array[rear]=el;
+
+	}
+	
+void dequeue()
+	{
+		
+		front=front+1;
+	  /* for(i=0;i<5;i++)
+	   {
+	      j=i+1;
+	      array[i]=array[j];
+	     } */
+	    if(front>rear)
+	    {
+	      
+		  front=rear=-1;
+			
+		}
+	 }
+  void display()
+{
+	 int a;
+	 if(rear==-1 && front==-1)
+	 {
+	 	cout<<"queue is empty";
+	 	
+	 }
+	else
+	{
+	
+	for(a=front;a<=rear;a++)
+	{
+	 cout<<"\n"<<array[a]<<endl;	
+		
+	}
+}
+}
+	
+	
+};
+
+
+int main()
+{   
+queue s1;
+     int ch;
+     while(1)
+     {
+	 
+	cout<<"Enter choice:";
+	cout<<"1.enqueue";
+	cout<<"2.dequeue";
+	cout<<"3.exit";
+	cout<<"4.display";
+	cin>>ch;
+	 switch(ch)
+	{
+		case 1:
+			     s1.enque();
+			     break;
+	     case 2: 
+	  	        s1.dequeue();
+	  	        break;
+	    case 3:
+	    	   goto exit;
+	    	   break;
+		 case 4:
+		 	   s1.display();
+		 	   break;
+		default:
+			   cout<<"wrong input";
+		        break;
+		
+		
+	}
+    }
+	exit:
+	
+	
+     return 0;
+}
